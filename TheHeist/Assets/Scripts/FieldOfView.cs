@@ -62,28 +62,21 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position,dirToTarget,distToTarget,g_ObstaclesMask))
                 {
                     //Is the target a predator?
-                    if (target.CompareTag("Predator"))
-                    {
-                        ////Set target from collider
-                        //Prey prey = GetComponent<Prey>();
-                        //prey.SetPredator(target);
-                    }
+                    //if (target.CompareTag("Predator"))
+                    //{
+                    //    ////Set target from collider
+                    //    //Prey prey = GetComponent<Prey>();
+                    //    //prey.SetPredator(target);
+                    //}
 
                     //Or prey?
-                    if (target.CompareTag("Prey") && target.transform != transform)
+                    if (target.CompareTag("Agent") && target.transform != transform)
                     {
-                       
+
+                        SecurityGuard securityGuard = GetComponent<SecurityGuard>();
+                        securityGuard.RobberDetected = true;
+                       // Debug.Log("True");
                         
-                        if (CompareTag("Predator"))
-                        {
-                          
-                        }
-                        else
-                        {
-                           
-                           
-                           
-                        }
                     }
                 }
             }
