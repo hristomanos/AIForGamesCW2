@@ -8,8 +8,7 @@ public class PatrolNode : Node
     NavMeshAgent m_NavMeshAgent;
     AIAgent m_Agent;
 
-    //Dictates whether the agent wait on each node.
-   bool m_PatrolWaiting = true;
+   
 
     //The total time we wait at each node.
     [SerializeField] float m_TotalWaitTime = 3.0f;

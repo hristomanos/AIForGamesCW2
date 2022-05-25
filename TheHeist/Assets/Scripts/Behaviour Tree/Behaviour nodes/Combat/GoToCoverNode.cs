@@ -8,6 +8,7 @@ public class GoToCoverNode : Node
  
     NavMeshAgent m_NavMeshAgent;
     AIAgent m_Agent;
+
     public GoToCoverNode (NavMeshAgent navMeshAgent, AIAgent agent)
     {
         m_NavMeshAgent = navMeshAgent;

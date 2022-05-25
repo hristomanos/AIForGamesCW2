@@ -21,12 +21,18 @@ public class ShootNode : Node
 
     public override NodeState Execute()
     {
-        m_NavMeshAgent.isStopped = true;
-        m_Agent.Material.color = Color.red;
         m_Agent.transform.LookAt(m_Target); //Only if I can see him
-       // Debug.Log("Shooting");
-        Shoot();
-        return NodeState.SUCCESS;
+        if (TargetIsVisible(m_Target))
+        {
+
+            m_NavMeshAgent.isStopped = true;
+            m_Agent.Material.color = Color.red;
+                                                // Debug.Log("Shooting");
+            Shoot();
+            return NodeState.SUCCESS;
+        }
+        else
+            return NodeState.FAILURE;
 
     }
 
@@ -44,9 +50,9 @@ public class ShootNode : Node
     private bool TargetIsVisible(Transform target)
     {
         RaycastHit hit;
-        Vector3 direction = m_Target.position - target.position;
+        Vector3 direction = m_Target.position - m_Agent.transform.position;
 
-        if (Physics.Raycast(target.position, direction, out hit))
+        if (Physics.Raycast(m_Agent.transform.position, direction, out hit))
         {
             if (hit.collider.transform == m_Target)
             {

@@ -99,7 +99,7 @@ public class BankRobber : AIAgent
         SequenceNode         shootSequence           = new SequenceNode(new List<Node> {shootingRangeNode, shootNode });
                                                      
         SequenceNode         goToCoverSequence       = new SequenceNode(new List<Node> { isCoverAvailableNode, goToCoverNode });
-        SelectorNode         findCoverSelector       = new SelectorNode(new List<Node> { goToCoverSequence, chaseNode });
+        SelectorNode         findCoverSelector       = new SelectorNode(new List<Node> { goToCoverSequence, chaseSequence });
         SelectorNode         tryToTakeCoverSelector  = new SelectorNode(new List<Node> { isCoveredNode, findCoverSelector });
         SequenceNode         mainCoverSequence       = new SequenceNode(new List<Node> { healthNode, tryToTakeCoverSelector });
                                                      
